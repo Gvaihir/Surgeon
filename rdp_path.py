@@ -17,7 +17,7 @@ patient_In = pd.read_csv("/Users/antonogorodnikov/Documents/Work/Python/"
                                     "ProstateX-TrainingLesionInformationv2/!ProstateX-Images-Train.csv")
 
 cond = patient_In['Name'].str.contains('ADC')
-patient_ADC = patient_In.loc[cond,['ProxID', 'Name', 'ijk']].drop_duplicates(subset='ProxID')
+patient_ADC = patient_In.loc[cond,['ProxID', 'Name', 'ijk', 'Dim']].drop_duplicates(subset='ProxID')
 
 # read stacks order
 stack_ord_in = scipy.io.loadmat("/Users/antonogorodnikov/Documents/Work/Python/ADC_index.mat")
@@ -35,8 +35,24 @@ for counter, patient in enumerate(mer_dat['ProxID'].unique()):
     subset_mer['order'] = stack_ord_df.loc[counter, :]
     subset_mer = subset_mer.sort_values(by='order').reset_index(drop = True)
 
+    # make a lit of coordinates
+
+
     # loop over stacks
-    for
+    for count_inner, i in subset_mer['order']:
+
+        # make an array of coordinates
+        x0 = list(range(84))
+        y0 = 0
+        z0 = count_inner
+
+        if z == 0:
+            continue
+
+
+
+
+
 
 
 
