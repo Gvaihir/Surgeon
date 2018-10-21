@@ -7,11 +7,30 @@ Milestones:
 Tumor locations are available
 
 2) Find CNN trained with abdomenal MRIs
-    2.1) Segment images for detection of an important organ
-    2.2) determine location of the organ (coordinates of the object edges
+    2.1) pixel intensities to vector
+    2.2) PCA and t-SNE
+    2.2) cluster analysis
 
 3) Reconstruct optimal path
 
 """
 
 import pandas as pd
+import cv2
+import numpy as np
+import pydicom
+
+if __name__ == "__main__":
+
+    with open(argsP.i, 'r') as file:
+
+        df_all = pd.DataFrame()
+
+        # read file
+        ds = pydicom.dcmread("/Users/antonogorodnikov/Documents/Work/Python/Prostate_ADC/9-7-ep2ddifftraDYNDISTADC-30502/000008.dcm")
+
+        #make a flatten np array
+        ds_flat = ds.pixel_array.flatten()
+
+        # add to data frame
+
